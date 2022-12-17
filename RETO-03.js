@@ -18,5 +18,17 @@ Las cajas de regalos no se pueden dividir.
 Los nombres de los regalos y los renos siempre serán mayores que 0. */
 
 function distributeGifts (packOfGifts, reindeers) {
-  return 0
+  // Creamos una funcion para contar la cantidad de letras en una palabra
+  const calculateTotalWeight = (words) => {
+    return words.reduce((total, word) => total + word.length, 0)
+  }
+
+  // Calculamos la cantidad de letras en los array
+  let renosCapacidad = calculateTotalWeight(reindeers) * 2
+  let regalosPeso = calculateTotalWeight(packOfGifts)
+
+  // Devolvemos el resultado
+  return Math.floor(renosCapacidad / regalosPeso)
 }
+
+console.log(distributeGifts(['game', 'videoconsole', 'computer'], ['midudev', 'pheralb', 'codingwithdani', 'carlosble', 'blasco', 'facundocapua', 'madeval', 'memxd'])) // 5
